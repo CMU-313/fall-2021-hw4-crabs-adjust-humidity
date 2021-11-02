@@ -40,7 +40,7 @@ def test_str_type(client):
     assert r.status_code == 400     #A string input, which can't be parsed to an integer will have a response with code 400(Bad Request)
 
 #test for out of bound input type
-def test_str_type(client):
+def test_oof(client):
     r = client.get("/predict?Medu=6&failures=0&schoolsup=true&Dalc=1&Walc=1&sex=F&age=70")
     assert r.status_code == 400     #out of bound input will have a response with code 400(Bad Request)
     r = client.get("/predict?Medu=5&failures=0&schoolsup=true&Dalc=-1&Walc=1&sex=F&age=70")
