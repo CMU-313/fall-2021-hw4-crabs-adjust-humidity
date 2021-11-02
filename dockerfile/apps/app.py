@@ -10,7 +10,12 @@ def hello():
     return "try the predict route it is great!"
 
 def roundtrip_typchecks(param):
-    return str(int(param)) == param
+    param_int = None
+    try:
+        param_int = int(param)
+    except:
+        return False
+    return str(param_int) == param
 
 @app.route('/predict')
 def predict():
