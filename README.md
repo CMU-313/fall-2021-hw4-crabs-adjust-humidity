@@ -61,6 +61,8 @@ To deploy the application, cd into the directory dockerfile, and run the followi
 
 ## Testing
 
+In order to run the tests, a modification for `app.py` needs to be made since the name would not be main. As such, the declaration of clf as the model needs to be moved to the main body of the function instead.
+
 Testing for this microservice can be found in the `tests` folder in the `test_predict_model.py` file. To run these tests, we take advantage of the pytest package. This can be done with the following command in the dockerfile folder:
 
 `pytest apps/tests`
