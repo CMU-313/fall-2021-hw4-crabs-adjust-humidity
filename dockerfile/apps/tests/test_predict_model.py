@@ -8,7 +8,7 @@ def client():
 #test basic functionality -- how predicted result match labels
 def test_predict_api(client):
     r = client.get("/predict?Medu=4&failures=0&schoolsup=1&Dalc=1&Walc=1")
-    assert r.status_code == 200     #corectly returns
+    assert r.status_code == 200     #correctly returns
     assert str(r.json) == '0'       #check if the result is corret
     r = client.get("/predict?Medu=1&failures=3&schoolsup=0&Dalc=1&Walc=1")
     assert r.status_code == 200
@@ -29,7 +29,7 @@ def test_additional_arg(client):
     assert r.status_code == 200
     assert str(r.json) == '0'
     r = client.get("/predict?Medu=4&schoolsup=1&Dalc=1&Walc=1")
-    assert r.status_code == 400
+    assert r.status_code == 400     #missing arguments will result in Bad Request error with code 400
 
 #test for error input type (string inputs)
 def test_str_type(client):
