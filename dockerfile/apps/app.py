@@ -19,7 +19,7 @@ def predict():
      w_alc = request.args.get('Walc')
      query_df = pd.DataFrame({ 'Medu' : pd.Series(m_edu) ,'failures' : pd.Series(failures) ,'schoolsup' : pd.Series(schoolsup) , 'Dalc' : pd.Series(d_alc) , 'Walc' : pd.Series(w_alc) })
      query = pd.get_dummies(query_df)
-     clf = joblib.load('/apps/new_model.pkl')
+     clf = joblib.load('./apps/new_model.pkl')
      prediction = clf.predict(query)
      return jsonify(np.asscalar(prediction))
 
